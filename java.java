@@ -81,6 +81,8 @@ rs.getString("father"),rs.getString("mother"),rs.getString("gfather"),rs.getStri
     }
            catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
+         void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+            openNewAccount();
         }
    return userList;
     
@@ -854,6 +856,10 @@ int i = ebankingjtable.getSelectedRow();
             pst.setString(32, lbl_transaction.getText()); 
 
 
+        private void openNewAccount() {
+            String accountType = jComboBox1.getSelectedItem().toString();
+            String customerName = jTextField1.getText();
+            String initialDeposit = jTextField2.getText();
             
            // pst.setBytes(30, person_image);
            //// pst.setBytes(31, person_signature);
@@ -922,6 +928,12 @@ lbl_transaction.setText("");
 //imagecitizenship.setText("");
 //customer account opening with 0 balance at first
 
+            if (validateInput(accountType, customerName, initialDeposit)) {
+                // Perform account opening logic
+                // Example: createAccount(accountType, customerName, initialDeposit);
+            } else {
+                // Display error message to the user
+                JOptionPane.showMessageDialog(this, "Invalid input. Please check the fields.");
             }
        }
       catch(Exception e){
@@ -1043,3 +1055,7 @@ lbl_transaction.setText("");
     private javax.swing.JRadioButton rsingle;
     // End of variables declaration//GEN-END:variables
 }
+        private boolean validateInput(String accountType, String customerName, String initialDeposit) {
+            // Add validation logic here
+            return !accountType.isEmpty() && !customerName.isEmpty() && !initialDeposit.isEmpty();
+        }
