@@ -81,8 +81,6 @@ rs.getString("father"),rs.getString("mother"),rs.getString("gfather"),rs.getStri
     }
            catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
-         void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-            openNewAccount();
         }
    return userList;
     
@@ -221,6 +219,10 @@ public void show_user(){
             },
             new String [] {
                 "sno", "branch", "datee", "accounttype", "title", "name", "gender", "maritial", "dob", "father", "mother", "gfather", "gmother", "hw", "nationality", "paddress", "taddress", "occupation", "education", "oname", "oaddress", "oemail", "mno", "mnoo", "landline", "email", "citizenshipno", "documentno"
+             void jButton1ActionPerformed(ActionEvent evt) {
+                performValidation();
+                processData();
+                updateUI();
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -229,6 +231,8 @@ public void show_user(){
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            private void performValidation() {
+                // Code for validation logic
             }
         });
         ebankingjtable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -328,6 +332,8 @@ public void show_user(){
         lbloname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lblonameActionPerformed(evt);
+            private void processData() {
+                // Code for processing data
             }
         });
 
@@ -856,10 +862,6 @@ int i = ebankingjtable.getSelectedRow();
             pst.setString(32, lbl_transaction.getText()); 
 
 
-        private void openNewAccount() {
-            String accountType = jComboBox1.getSelectedItem().toString();
-            String customerName = jTextField1.getText();
-            String initialDeposit = jTextField2.getText();
             
            // pst.setBytes(30, person_image);
            //// pst.setBytes(31, person_signature);
@@ -928,12 +930,6 @@ lbl_transaction.setText("");
 //imagecitizenship.setText("");
 //customer account opening with 0 balance at first
 
-            if (validateInput(accountType, customerName, initialDeposit)) {
-                // Perform account opening logic
-                // Example: createAccount(accountType, customerName, initialDeposit);
-            } else {
-                // Display error message to the user
-                JOptionPane.showMessageDialog(this, "Invalid input. Please check the fields.");
             }
        }
       catch(Exception e){
@@ -1055,7 +1051,6 @@ lbl_transaction.setText("");
     private javax.swing.JRadioButton rsingle;
     // End of variables declaration//GEN-END:variables
 }
-        private boolean validateInput(String accountType, String customerName, String initialDeposit) {
-            // Add validation logic here
-            return !accountType.isEmpty() && !customerName.isEmpty() && !initialDeposit.isEmpty();
-        }
+            private void updateUI() {
+                // Code for updating the UI
+            }
